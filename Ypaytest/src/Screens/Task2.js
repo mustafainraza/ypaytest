@@ -34,21 +34,32 @@ export default function Task2() {
         }}>
         VirtualizedList With Redux State Management{' '}
       </Text>
-      <VirtualizedList
-        style={{marginTop: '10%'}}
-        initialNumToRender={4}
-        data={Items}
-        getItemCount={getItemCount}
-        getItem={getItem}
-        renderItem={({item}) => <RenderItem item={item} />}
-        keyExtractor={keyExtractor}
-      />
+      {Items.length < 1 ? (
+        <View style={styles.emptyView}>
+          <Text style={styles.emptytext}>Add Items To List, First</Text>
+        </View>
+      ) : (
+        <VirtualizedList
+          style={{marginTop: '10%'}}
+          initialNumToRender={4}
+          data={Items}
+          getItemCount={getItemCount}
+          getItem={getItem}
+          renderItem={({item}) => <RenderItem item={item} />}
+          keyExtractor={keyExtractor}
+        />
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   text: {fontSize: 18, color: 'white'},
+  emptytext: {
+    fontSize: 18,
+    color: '#003047',
+    fontWeight: 'bold',
+  },
   card: {
     flex: 1,
     flexDirection: 'row',
@@ -58,4 +69,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#003047',
     borderRadius: 25,
   },
+  emptyView: {justifyContent: 'center', alignItems: 'center', flex: 1},
 });

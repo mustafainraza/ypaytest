@@ -8,6 +8,10 @@ import Task3 from './src/Screens/Task3';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import Task4 from './src/Screens/Task4';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Octicons from 'react-native-vector-icons/Octicons';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -15,10 +19,46 @@ export default function App() {
     <Provider store={mystore}>
       <NavigationContainer>
         <Tab.Navigator screenOptions={{tabBarHideOnKeyboard: true}}>
-          <Tab.Screen name="Task1" component={Task1} />
-          <Tab.Screen name="Task2" component={Task2} />
-          <Tab.Screen name="Task3" component={Task3} />
-          <Tab.Screen name="Task4" component={Task4} />
+          <Tab.Screen
+            name="Task1"
+            component={Task1}
+            options={{
+              tabBarActiveTintColor: '#D6252E',
+              tabBarIcon: ({color, size}) => (
+                <FontAwesome name="tasks" color={color} size={size} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Task2"
+            component={Task2}
+            options={{
+              tabBarActiveTintColor: '#D6252E',
+              tabBarIcon: ({color, size}) => (
+                <FontAwesome5 name="tasks" color={color} size={size} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Task3"
+            component={Task3}
+            options={{
+              tabBarActiveTintColor: '#D6252E',
+              tabBarIcon: ({color, size}) => (
+                <MaterialIcons name="add-task" color={color} size={size} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Task4"
+            component={Task4}
+            options={{
+              tabBarActiveTintColor: '#D6252E',
+              tabBarIcon: ({color, size}) => (
+                <Octicons name="tasklist" color={color} size={size} />
+              ),
+            }}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </Provider>

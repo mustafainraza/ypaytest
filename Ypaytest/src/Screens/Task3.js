@@ -28,10 +28,13 @@ export default function Task3() {
       });
   };
 
-  // const handleInput = val => {
-  //   setInput(val);
-  //   getJoke();
-  // };
+  const handleInput = val => {
+    if (/^\d*$/.test(val)) {
+      setInput(val);
+    } else {
+      Alert.alert('Enter numbers only');
+    }
+  };
 
   const handleSubmit = () => {
     if (input) {
@@ -60,7 +63,7 @@ export default function Task3() {
         placeholder="Enter a Number"
         keyboardType="numeric"
         value={input}
-        onChangeText={val => setInput(val)}
+        onChangeText={val => handleInput(val)}
         onSubmitEditing={handleSubmit}
       />
     </View>

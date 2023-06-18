@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 
 export default function Task4() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="Form" component={Form} />
     </Stack.Navigator>
