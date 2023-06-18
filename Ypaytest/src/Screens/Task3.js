@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TextInput,
   ActivityIndicator,
+  TouchableOpacity,
   Alert,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
@@ -66,6 +67,9 @@ export default function Task3() {
         onChangeText={val => handleInput(val)}
         onSubmitEditing={handleSubmit}
       />
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.btnText}>Submit</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -86,4 +90,12 @@ const styles = StyleSheet.create({
     marginTop: '10%',
     color: 'black',
   },
+  button: {
+    marginTop: '5%',
+    borderWidth: 1,
+    backgroundColor: '#003047',
+    padding: 7,
+    borderRadius: 15,
+  },
+  btnText: {color: 'white', fontSize: 20},
 });

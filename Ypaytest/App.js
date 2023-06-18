@@ -1,5 +1,5 @@
 import {View, Text} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import Task1 from './src/Screens/Task1';
 import {mystore} from './src/Redux/Store/Store';
 import {Provider} from 'react-redux';
@@ -12,9 +12,13 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
+import SplashScreen from 'react-native-splash-screen';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
     <Provider store={mystore}>
       <NavigationContainer>
