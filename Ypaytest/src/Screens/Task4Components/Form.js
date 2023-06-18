@@ -30,19 +30,24 @@ export default function Form({navigation}) {
   return (
     <View style={styles.container}>
       <TextInput
+        testID="nameInput"
         style={styles.input}
         placeholder="Enter Your Name"
         value={userName}
         onChangeText={setUsername}
       />
       <TextInput
+        testID="ageInput"
         style={styles.input}
         placeholder="Enter Your Age"
         keyboardType="numeric"
         value={userAge}
         onChangeText={setUserage}
       />
-      <TouchableOpacity style={styles.button} onPress={handleFormSubmit}>
+      <TouchableOpacity
+        testID="submitButton"
+        style={styles.button}
+        onPress={handleFormSubmit}>
         <Text style={styles.btnText}>Submit</Text>
       </TouchableOpacity>
     </View>

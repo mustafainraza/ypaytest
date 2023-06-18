@@ -13,6 +13,10 @@ import {
 import {useDispatch} from 'react-redux';
 import {AddItem} from '../Redux/Actions/Action';
 
+export function checkNumber(val) {
+  return val % 2 === 0 ? 'Number is Even' : 'Number is Odd';
+}
+
 const Task1 = () => {
   const [input, setInput] = useState('');
   const [answer, setAnswer] = useState('');
@@ -33,7 +37,7 @@ const Task1 = () => {
     } else {
       if (/^\d*$/.test(val)) {
         setInput(val);
-        setAnswer(val % 2 === 0 ? 'Number is Even' : 'Number is Odd');
+        setAnswer(checkNumber(val));
       } else {
         Alert.alert('Enter numbers only');
       }
@@ -43,6 +47,7 @@ const Task1 = () => {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <TextInput
+        testID="TextInput"
         style={styles.input}
         placeholder="Enter a Number"
         keyboardType="numeric"
@@ -50,7 +55,10 @@ const Task1 = () => {
         onChangeText={val => handleInput(val)}
       />
       <Text style={styles.answer}>{answer}</Text>
-      <TouchableOpacity style={styles.button} onPress={() => addNumber()}>
+      <TouchableOpacity
+        testID="TouchableOpacity"
+        style={styles.button}
+        onPress={() => addNumber()}>
         <Text style={styles.btnText}>Submit</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
