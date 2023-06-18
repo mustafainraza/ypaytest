@@ -48,15 +48,12 @@ export default function Task3() {
 
   return (
     <View style={styles.container}>
-      <View style={{bottom: 60, backgroundColor: '#003047', padding: 20}}>
-        <Text style={{fontSize: 30, color: 'white'}}>
-          Enter number and get joke
-        </Text>
+      <View style={styles.subcontainer}>
+        <Text style={styles.title}>Enter number and get joke</Text>
       </View>
       {joke == '' ? null : (
-        <View
-          style={{backgroundColor: '#003047', padding: 15, borderRadius: 20}}>
-          <Text style={{fontSize: 20, color: 'white'}}>{joke}</Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.joketext}>{joke}</Text>
         </View>
       )}
       <TextInput
@@ -66,6 +63,7 @@ export default function Task3() {
         value={input}
         onChangeText={val => handleInput(val)}
         onSubmitEditing={handleSubmit}
+        placeholderTextColor={'grey'}
       />
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.btnText}>Submit</Text>
@@ -89,6 +87,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: '10%',
     color: 'black',
+    backgroundColor: 'lightgrey',
   },
   button: {
     marginTop: '5%',
@@ -98,4 +97,13 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   btnText: {color: 'white', fontSize: 20},
+  subcontainer: {
+    bottom: 60,
+    backgroundColor: '#003047',
+    padding: '5%',
+    borderRadius: 10,
+  },
+  title: {fontSize: 30, color: 'white', textAlign: 'center'},
+  textContainer: {backgroundColor: '#003047', padding: 15, borderRadius: 20},
+  joketext: {fontSize: 20, color: 'white'},
 });

@@ -6,8 +6,10 @@ import {
   StyleSheet,
   Alert,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import React, {useState} from 'react';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 export default function Form({navigation}) {
   const [userName, setUsername] = useState(null);
@@ -29,21 +31,48 @@ export default function Form({navigation}) {
 
   return (
     <View style={styles.container}>
-      <TextInput
-        testID="nameInput"
-        style={styles.input}
-        placeholder="Enter Your Name"
-        value={userName}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        testID="ageInput"
-        style={styles.input}
-        placeholder="Enter Your Age"
-        keyboardType="numeric"
-        value={userAge}
-        onChangeText={setUserage}
-      />
+      <View style={{justifyContent: 'center', flexDirection: 'row'}}>
+        <View
+          style={{
+            marginTop: '2%',
+            right: '7%',
+          }}>
+          <EvilIcons name="user" color={'black'} size={45} />
+        </View>
+        <TextInput
+          testID="nameInput"
+          style={styles.input}
+          placeholder="Enter Your Name"
+          value={userName}
+          onChangeText={setUsername}
+          placeholderTextColor={'grey'}
+        />
+      </View>
+
+      <View
+        style={{justifyContent: 'center', flexDirection: 'row', paddingTop: 5}}>
+        <View
+          style={{
+            marginTop: '2%',
+            marginRight: 6,
+            paddingRight: 2,
+          }}>
+          <Image
+            style={{height: 35, width: 35}}
+            source={require('../../../assets/ageicon.png')}
+          />
+        </View>
+        <TextInput
+          testID="ageInput"
+          style={styles.input}
+          placeholder="Enter Your Age"
+          keyboardType="numeric"
+          value={userAge}
+          onChangeText={setUserage}
+          placeholderTextColor={'grey'}
+        />
+      </View>
+      <TextInput />
       <TouchableOpacity
         testID="submitButton"
         style={styles.button}
@@ -64,6 +93,8 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: '10%',
     color: 'black',
+    backgroundColor: 'lightgrey',
+    marginLeft: 10,
   },
   container: {
     flex: 1,

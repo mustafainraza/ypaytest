@@ -23,11 +23,15 @@ const Task1 = () => {
   const dispatch = useDispatch();
 
   const addNumber = () => {
-    dispatch(AddItem({data: input, number: answer}));
-    Keyboard.dismiss();
-    setInput('');
-    setAnswer('');
-    Alert.alert('Submitted Successfully');
+    if (input) {
+      dispatch(AddItem({data: input, number: answer}));
+      Keyboard.dismiss();
+      setInput('');
+      setAnswer('');
+      Alert.alert('Submitted Successfully');
+    } else {
+      Alert.alert('please enter a number');
+    }
   };
 
   const handleInput = val => {
@@ -53,6 +57,7 @@ const Task1 = () => {
         keyboardType="numeric"
         value={input}
         onChangeText={val => handleInput(val)}
+        placeholderTextColor={'grey'}
       />
       <Text style={styles.answer}>{answer}</Text>
       <TouchableOpacity
@@ -80,6 +85,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: '10%',
     color: 'black',
+    backgroundColor: 'lightgrey',
   },
   answer: {
     fontSize: 24,
