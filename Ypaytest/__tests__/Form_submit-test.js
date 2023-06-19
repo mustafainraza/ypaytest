@@ -6,13 +6,13 @@ test('form submission triggers navigation', () => {
   const mockNavigation = {navigate: jest.fn()};
   const {getByTestId} = render(<Form navigation={mockNavigation} />);
 
-  fireEvent.changeText(getByTestId('nameInput'), 'John Doe');
-  fireEvent.changeText(getByTestId('ageInput'), '25');
+  fireEvent.changeText(getByTestId('nameInput'), 'Mustafain Raza');
+  fireEvent.changeText(getByTestId('ageInput'), '22');
   fireEvent.press(getByTestId('submitButton'));
 
   expect(mockNavigation.navigate).toHaveBeenCalledWith({
     name: 'Welcome',
-    params: {name: 'John Doe', age: '25'},
+    params: {name: 'Mustafain Raza', age: '22'},
     merge: true,
   });
 });
